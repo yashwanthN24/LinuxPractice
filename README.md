@@ -100,6 +100,11 @@ then for changing the ui the name that gets displayed change `export PS1="yashwa
 
 
 
+apt is the default package manager in debian based systems like Ubuntu OS 
 
+apt list (lists all packages installed already in this system) 
 
+apt update (To update all packages on this system keeping olderversion as well for reverting back to old version) 
+
+apt install python3 (To install python on ubuntu system must have sudo permission or must be a root user to install packages)
 
