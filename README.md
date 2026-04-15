@@ -49,6 +49,57 @@ or if you already know the process name
 netstat -tuln
  # shows all ports already in use so that you can use a different port or kill those ports and reuse them for your application
 ```
+Lets say you have a situation wherein the client complaints that there is a latency in  the response 
+tcp lets you analyse network packets and diagnosing the connectivity issues 
+
+use `sudo tcpdump -i enX0 port 80`
+
+ping www.google.com (To test server connectivity and dns resolution and see if we are recieved packets from the server _ 
+
+traceroute   to check the  latency that can occur in trasfer of packets between different hops between your ip to the destination ip 
+
+traceroute www.google.com 
+
+disk utilization 
+
+df -h 
+
+if i have to check the size that a directory is taking 
+
+du -sh directorypath 
+
+du -sh opt
+
+free -h (To check memory utilization) 
+
+journalctl (very important when dealing with services , say you have nginx service and want to check its logs , these services are run by systemd  
+
+journalctl -u nginx (shows the logs of nginx service) 
+
+journalctl -u nginx -f (to show float logs in real time of nginx service) 
+
+journalctl -b  (to check the logs from the boot time onwards) 
+
+lsof -i :port (to find which app is using this port) 
+
+tail -n 10 /var/log/auth.log (To see last 10 lines of this log file) 
+
+head -n 10 /var/log/auth.log (To see first 10 lines of this log file) 
+
+tail -f /var/log/auth.log (To see real time floating logs of this file) 
+
+Shortcuts 
+
+history => To get back all commands executed in past say you dont remember the command but you know its something related to export 
+
+press ctrl + r to search start typing export Keeping pressing ctrl + r till you get the exact match one you found right arrow and enter done 
+
+instead of doing `history | grep export`
+
+then for changing the ui the name that gets displayed change `export PS1="yashwanth $PWD`
+
+
+
 
 
 
