@@ -108,3 +108,20 @@ apt update (To update all packages on this system keeping olderversion as well f
 
 apt install python3 (To install python on ubuntu system must have sudo permission or must be a root user to install packages)
 
+ncdu (modern for seeing disk utilization of a directory instead of using du -h directorypath ) 
+
+tldr commandname (to get the most used versions of the command for quick learning instead of man command and --help flag on command)
+
+rg (to quick search for specific words across files) 
+
+fzf - For searching files faster than locate and find 
+
+bat - to read file content with color formatting and numbers instead of traditional cat command 
+
+ranger (To understand any big codebase very easily instead of installing vscode ) from terminal itself better style liek vscode to understand files better 
+
+glances (For system monitoring (advanced version of the top command) )
+
+
+
+
