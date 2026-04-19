@@ -341,4 +341,174 @@ cp file1 ~ # ~ represents the home directory of a non-root user i.e /home/userna
 
 ctrl + X # To exit 
 
+ctrl + o # To write out to a new file and provide new filename it writes to that file very helpful for backups of current file 
+
+ctrl + r # To Read other files content and paste them in current file in  nano editor and that file which we read also must be in the same directory 
+
+ctrl + w # To search for a word in nano editor 
+
+ctrl + \  
+# To replace a word by other 
+
+ctrl + k # To cut a line text 
+
+ctrl + u # To paste a text
+
+Alt + u # To undo 
+
+Alt + e # To redo 
+
 ```
+
+## Tee command in linux 
+
+- Tee reads standard input and copies to both to stdout and to a file 
+- we can see the information going through a pipeline T shaped
+
+`ls | tee files.txt` 
+
+**xargs** 
+
+- It converts the stdinput to command line argument
+
+```bash 
+
+ls | echo # fails because ls provide the output as stdin to echo but echo doesnt take stdin instead it requires only command line arguments 
+
+ls | xargs echo 
+
+# so here the output of ls i.e sent as stdin to xargs that converts it to command line arguments and passes to echo hence it works fine 
+
+ls | xargs echo h1 
+
+```
+
+```bash 
+
+cat filenames.txt | xargs touch 
+
+# or 
+
+echo file{1..2} | xargs touch
+
+echo file{1..5} | xargs rm
+
+# because these commands require command line arguments only they dont take in stdinput and work on it 
+
+```
+
+# Understanding Linux Commands: Arguments vs. Standard Input (Stdin)
+
+In Linux, not all commands are created equal. Some process the **content** of a stream (Stdin), while others only act on **filenames or IDs** provided as command-line arguments.
+
+## 🚫 Commands That Require `xargs`
+
+These commands ignore data coming through a pipe `|` because they do not read from Standard Input. They expect you to type the targets directly after the command.
+
+| Category       | Commands          | Why they need `xargs`                  |
+|----------------|-------------------|----------------------------------------|
+| **File Management** | `rm`, `cp`, `mv`, `mkdir`, `touch` | They act on the **file object**, not the text inside. |
+| **Permissions**    | `chmod`, `chown`  | They modify metadata; they don't read stream data. |
+| **Process Control**| `kill`            | Requires a PID (number) as an argument. |
+| **Output**         | `echo`, `ls`      | They print specific arguments or directory contents. |
+
+## The `xargs` Bridge
+
+When you want to pass the output of one command (like `find`) into a command that doesn't read Stdin (like `rm`), you must use `xargs`:
+
+```bash
+# This WILL NOT work (rm ignores the pipe)
+find . -name "*.log" | rm
+
+# This WILL work (xargs converts the pipe into arguments)
+find . -name "*.log" | xargs rm
+```
+
+> **Use code with caution.**
+
+## 🔍 How to Identify Them (The 3-Step Test)
+
+As a beginner, you can use these tests to determine if a command needs `xargs`.
+
+### 1. The "Blinking Cursor" Test
+Run the command by itself and hit `Enter`.
+
+- **Waiting for you?** If it sits there with a blinking cursor, it is waiting for Stdin (e.g., `grep`, `cat`, `sort`). You **do not** need `xargs`.
+- **Errors out immediately?** If it says "missing operand" or prints a help message, it likely requires Arguments (e.g., `rm`, `cp`). You **do** need `xargs`.
+
+### 2. The Logic: "Content vs. Container"
+- **Content**: Does it look **inside** a file to search, sort, or change text? (e.g., `sed`, `awk`). → **Uses Stdin**.
+- **Container**: Does it move, delete, or rename the **file itself**? (e.g., `mv`, `rm`). → **Uses Arguments**.
+
+### 3. The `echo` Test
+Pipe a random word to the command:
+
+```bash
+echo "test.txt" | ls
+```
+
+> **Use code with caution.**
+
+If the command ignores "test.txt" and just does its normal job (like listing the whole folder), it doesn't support Stdin.
+
+## 💡 Quick Summary for GitHub
+
+- Piping (`|`) passes data to a command's **"ears"** (Stdin).
+- `xargs` takes that data and puts it in the command's **"hands"** (Arguments).
+
+## Grep Command (Global Regular Expression Print)
+
+- used to search for specific text patterns within files or output streams. 
+
+**Case 01** 
+
+- To Ignore the upper and lower case while searching 
+
+```bash 
+
+    grep -i "keyword" file
+
+```
+
+**Case 02**
+
+- To search everything except given pattern/keyword
+
+```bash 
+
+    grep -v "keyword" file
+
+```
+
+**Case 03** 
+
+- To print how many times (count) given keyword present in file 
+
+```bash 
+
+    grep -c "keyword" file
+
+```
+
+**Case 04** 
+
+- To search for exact match of a given keyword in a file
+
+```bash 
+
+grep -w "keyword" file
+
+```
+
+**Case 05** 
+
+- To print the line number of matches of given keyword in a file 
+
+```bash 
+
+grep -n "keyword" file
+
+``` 
+
+**Case 06** 
+
