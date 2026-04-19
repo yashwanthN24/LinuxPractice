@@ -123,5 +123,33 @@ ranger (To understand any big codebase very easily instead of installing vscode 
 glances (For system monitoring (advanced version of the top command) )
 
 
+## Productivity Tips in Linux 
+
+**Case 01** 
+
+#### Tab for Autocompletion 
+
+    Suppose you want to go to directory cd home/paul/tutorials we can use Tab for autocompletion which will speed up the task and reduces chances of errors 
+
+**Case 02** 
+
+#### Switch to the last working directory 
+
+    cd - 
+
+**Case 03** 
+
+#### Running multiple commands in one line using ; 
+
+```bash    
+ Command1 ; command2 ; command3
+# Here each command irrespective of it previous command's output 
+
+ command1 && command2 
+# Here 2nd command will run only if 1 was successful
+```
+
+
+
 
 
