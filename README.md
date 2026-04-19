@@ -50,13 +50,13 @@ netstat -tuln
  # shows all ports already in use so that you can use a different port or kill those ports and reuse them for your application
 ```
 Lets say you have a situation wherein the client complaints that there is a latency in  the response 
-tcp lets you analyse network packets and diagnosing the connectivity issues 
+tcpdump lets you analyse network packets and diagnosing the connectivity issues 
 
 use `sudo tcpdump -i enX0 port 80`
 
-ping www.google.com (To test server connectivity and dns resolution and see if we are recieved packets from the server _ 
+ping www.google.com (To test server connectivity and dns resolution and see if we are recieved packets from the server  
 
-traceroute   to check the  latency that can occur in trasfer of packets between different hops between your ip to the destination ip 
+traceroute   to check the  latency that can occur in transfer of packets between different hops between your ip to the destination ip 
 
 traceroute www.google.com 
 
@@ -143,13 +143,154 @@ glances (For system monitoring (advanced version of the top command) )
 
 ```bash    
  Command1 ; command2 ; command3
-# Here each command irrespective of it previous command's output 
+# Here each command run irrespective of it previous command's output regardless of an error
 
  command1 && command2 
 # Here 2nd command will run only if 1 was successful
+
+ command1 || command2 
+# Here command2 will run only if command1 fails 
+```
+
+**Case 04** 
+
+```bash 
+
+#To Read big files cat is not a good option; better to use less 
+
+less csv  # we can easily search and navigate, go to top and end of the file 
+
+# use arrow keys to navigate 
+
+# / for forward search and ? for backward search 
+
+# p to go to the start of the file
+
+# Shift + g to go to the end of file 
+
+```
+
+**Case 05**
+
+```bash 
+# Empty a file without deleting it : 
+ `
+> filename`  
+
+# This will empty the file without deleting it 
+```
+
+**Case 06** 
+
+```bash 
+
+tail -f | grep "error" # for live monitoring file with given text
+
+# or 
+
+sudo tail -f filename  # if your non-root but have sudo access
+
+```
+
+**Case 07**
+
+```bash 
+
+# To Record all the commands executed in a script 
+
+script 
+
+# Then perform all the tasks -> Ctrl + D to stop the script 
+
+# If your trainer , boss , collegue teach you a process then we can record it using this 
+
+script commands.txt
+
+``` 
+
+**Case 08** 
+
+```bash 
+
+# terminal as calculator 
+
+bc -l # quit to exit 
+
+
+#  w , who these two commands show logged in users list details 
+
+# whoami - shows the current login user (effective username of the current user in the shell.)
+
+# which -To get the path of the binary of a software 
+
+where ls # gets the path of the ls executable useful for PATH configurations and debugging 
+
+whatis ls # short description of the command from the manuel of the command man 
+
+wc filename # word count (Counts lines , words and bytes)
+
+wc -l filename # counts the lines from the filename 
+
+
 ```
 
 
+**Case 09**
+
+```bash 
+
+Ctrl + a: To move cursor to the start 
+
+ctrl + e: To move cursor to end 
+
+```
+
+```bash 
+
+Ctrl + u: To clear the terminal 
+
+Ctrl + y: To redo commands in the terminal 
+
+```
+
+**Case 10** 
+
+```bash 
+
+Ctrl + r : To reverse search for the commands we used ever 
+
+Ctrl + l : Clear Screen 
+
+``` 
+
+```bash 
+
+ctrl + d : to delete one character at a time from starting (opp of backspace)
+
+cd ~ # To switch the path to home directory 
+
+cd # also takes to the home directory 
+
+cd /  #  takes to the root directory 
+
+``` 
+
+```bash 
+
+
+history # history command to see all the commands executed frequently 
+
+cp file1 ~ # means copy file1 to home directory 
+# instead of saying 
+
+cp file1 /home/paul 
+
+# do 
+
+cp file1 ~ # ~ represents the home directory of a non-root user i.e /home/username i.e /home/paul for example 
+
+
+```
 
 
 
