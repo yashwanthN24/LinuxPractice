@@ -292,5 +292,53 @@ cp file1 ~ # ~ represents the home directory of a non-root user i.e /home/userna
 
 ```
 
+## Types of files in Linux 
+
+| File Symbol | File Type |
+| --- | --- |
+| - | Regular File |
+| d | directory |
+| l | Link |
+| c | Device File |
+| s | Socket |
+| p | FIFO or Named Pipe |
+| d | Block Device |
+
+**s socket** 
+
+- Special file to enable communication between two processes 
+- find under /run 
+
+**p FIFO or Named-pipe** 
+
+- Sends data from one process to another so that the recieving process reads the data first-in-first-out manner
+- can be created using `mkfifo` command
+
+**b block device file** 
+
+- A file that refers to a device.
+- Find under /dev/ 
+- Ex: /dev/sda1 
+
+`fdisk -l` 
+- The command fdisk -l is used in Linux to list all available disk partitions and their details
+
+**c character device file** 
+
+- we can create using `mknod` command. 
+- These files are present in /dev folder
+- File that reads/writes data in character by character
+- Ex: /dev/input/mouse2 ( A mouse device that provides character input )
 
 
+## nano Editor 
+
+`nano  filename` - To open the file with nano editor 
+
+- Unlike Vim Motion or Vi editor you can start editing directly dont need to press i and all 
+
+```bash 
+
+ctrl + X # To exit 
+
+```
