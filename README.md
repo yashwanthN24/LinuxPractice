@@ -1269,4 +1269,12 @@ in linux and displays kernal managed tasks
 - top then i = process which some memory usage 
 
 
+## Log monitoring 
+
+`cat /var/log/data.log/ | more` for a pageable view 
+
+`tail -f /var/log/cron.log | egrep "error|warning"` Shows only error/warning logs in real time 
+
+`cat error.log | grep error | wc - l` (Counts the number of lines having error so those many errors) 
+
 
