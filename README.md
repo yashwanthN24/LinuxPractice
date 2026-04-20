@@ -1053,3 +1053,138 @@ cat file1 file2 > file3 # Combines file1 and file2 and stores its output in flle
 
 - cat data.csv (is same as cat < data.csv so its bydefault stdin)
 
+## Linux A-Z 
+
+**A** 
+
+- awk : A powerful programming language used for pattern scanning and processing
+- alias , apt (Package manager on Debian/Ubuntu) , at (Automation One time task scheduling) 
+
+**B** 
+
+- bg: Puts a job in background 
+- bc : binary calcy (calculator)
+- bash : The Bourne Again Shell, a widely used command interpreter
+
+**C** 
+
+- chmod : changes the file permissions 
+- chown (change ownership) , chgrp (change group) , cp (copy) , cal (calendar) , curl (For http requests )
+
+
+**D** 
+
+- df : shows disk space usage 
+- du (disk space utilization by a directory) , diff (To see diff between two files) , date 
+
+**E** 
+
+- env : Displays the environment variables 
+- echo (To output on terminal) , export 
+
+**F** 
+
+- find : Searches for a file in a directory hierarchy 
+- file (Tells the type of file) , fg (Foreground) , free (Memory usage RAM )
+
+**G** 
+
+- grep : Searches files for a specified pattern 
+- gzip , groupadd 
+
+**H** 
+
+- history : Shows the command history 
+- head (To get specfic number of line from start of file) , hostname (Machine name)
+
+**I** 
+
+- ifconfig : Configures or displays network (used to see ipv4 address of the machine)
+- ip , id , iptables 
+
+**J** 
+
+- jobs : Lists the current jobs 
+
+**K** 
+
+- kill : Sends a signal to a process 
+
+**L** 
+
+- ls : lists directory contents and files 
+- less , ln (soft link and hard link (shortcuts)) , locate (To find a file faster via db)
+
+**M** 
+
+- mkdir : Create directories 
+- mv (move/cut-paste/rename) , more (page view on large files)
+
+**N** 
+
+- netstat : Prints network connections , routing tables , interface statistics , masquerade connections , and multicost memberships 
+- nano (Editor) , nice (Running command with specific priority)
+
+
+**O** 
+
+- openssl : toolkit for the transport layer Security (TLS) and secure sockets layer (SSL) protocols 
+
+**P** 
+
+- ps : Reports a snapshot of the current processes 
+- printenv (Print environment variables same as env) , pwd (Print current location path) , passwd (To set password of user)
+
+**Q** 
+
+- quota : Displays the disk usage and limits for a user or a group. 
+
+**
+
+**R** 
+
+- rsync : Fast and versatile file copying tool 
+- rm (remove file) , rmdir (remove directory) ,  reboot 
+
+**S** 
+
+- sudo : Allows a permitted user to execute a command as a superuser or another user 
+- sed , sort , systemctl 
+
+**T**
+
+- top : Displays all Linux task in real time CPU , memory stats 
+- tail , tar , tee , touch , telnet (older now use SSH as credentials are encrypted)
+
+**U** 
+
+- uniq : To get the unique values 
+- useradd (add new user) , umask (default permission to files and directories) , usermod (Modify user) , umount , uname (system info os diastro type)
+
+
+**V** 
+
+- vi or vim: Text Editor
+
+**W** 
+
+- wget : Non-interactive network downloader 
+- wc , whoami , which , whatis , who , w
+
+**X** 
+
+- xxd : creates a hex dump of a give file or standard input 
+- xargs : To convert stdin to command line arguments used in piping 
+
+**Y** 
+
+- yum : Interactive , rpm-based package manager (Used in Red Hat-based systems RHEL)
+- yes 
+
+**Z** 
+
+- zip : Package and compress (archive) files 
+
+
+--- 
+
