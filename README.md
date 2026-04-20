@@ -122,6 +122,7 @@ ranger (To understand any big codebase very easily instead of installing vscode 
 
 glances (For system monitoring (advanced version of the top command) )
 
+---
 
 ## Productivity Tips in Linux 
 
@@ -292,6 +293,8 @@ cp file1 ~ # ~ represents the home directory of a non-root user i.e /home/userna
 
 ```
 
+---
+
 ## Types of files in Linux 
 
 | File Symbol | File Type |
@@ -330,8 +333,9 @@ cp file1 ~ # ~ represents the home directory of a non-root user i.e /home/userna
 - File that reads/writes data in character by character
 - Ex: /dev/input/mouse2 ( A mouse device that provides character input )
 
+---
 
-## nano Editor 
+## Nano Editor 
 
 `nano  filename` - To open the file with nano editor 
 
@@ -359,6 +363,8 @@ Alt + u # To undo
 Alt + e # To redo 
 
 ```
+
+---
 
 ## Tee command in linux 
 
@@ -396,6 +402,8 @@ echo file{1..5} | xargs rm
 # because these commands require command line arguments only they dont take in stdinput and work on it 
 
 ```
+
+---
 
 # Understanding Linux Commands: Arguments vs. Standard Input (Stdin)
 
@@ -456,9 +464,20 @@ If the command ignores "test.txt" and just does its normal job (like listing the
 - Piping (`|`) passes data to a command's **"ears"** (Stdin).
 - `xargs` takes that data and puts it in the command's **"hands"** (Arguments).
 
+---
+
 ## Grep Command (Global Regular Expression Print)
 
-- used to search for specific text patterns within files or output streams. 
+
+**Global Regular Expression Print** 
+- Grep Command search for a particular string/keyword from a file and print lines matching a pattern 
+- It check line by line and print lines matching given pattern 
+- we can use grep anywhere like with files, searching for file, directories etc 
+
+```bash 
+    grep [Option] Pattern [File]
+
+```
 
 **Case 01** 
 
@@ -488,6 +507,8 @@ If the command ignores "test.txt" and just does its normal job (like listing the
 
     grep -c "keyword" file
 
+    # Ex: grep -c doctor users.csv 
+
 ```
 
 **Case 04** 
@@ -511,4 +532,524 @@ grep -n "keyword" file
 ``` 
 
 **Case 06** 
+
+- To search a given keyword in multiple files 
+
+```bash 
+
+grep "keyword" file1 file2 
+
+```
+
+- Note: By default result of multiple files shows filename in output 
+
+**Case 07** 
+
+- To suppress file names while search a given keyword in multiple files 
+
+```bash 
+
+grep -h "keyword" file1 file2 
+
+
+grep -ih merrry user.csv file.txt 
+
+```
+
+   
+**Case 08** 
+
+- To search multiple keywords in a file
+
+```bash 
+
+grep -e "keyword1" -e "keyword2" file
+
+
+# Ex:   grep -ie merry -ie kara users.csv 
+
+# i to ignore case
+
+# or use egrep for searching multiple words in file 
+
+egrep "Kara|merry|karly" users.csv 
+
+```
+
+
+**Case 09** 
+
+- To search multiple keywords in multiple files 
+
+```bash 
+
+grep -e "keyword1" -e "keyword2" file1 file2 
+
+```
+
+
+**Case 10** 
+
+- To only print file names which matches given keyword 
+
+```bash 
+
+grep -l "keyword" file1 file2 
+
+# Ex:   grep -l Merry users.csv file.txt 
+
+```
+
+**Case 11** 
+
+- To get the keywords/pattern from a file and match with a another file 
+
+```bash 
+
+grep -f keyword.txt file 
+
+```
+
+
+**Case 12** 
+
+- To print the matching line which start with given keyword 
+
+```bash 
+
+grep "^keyword" file 
+
+
+```
+
+**Case 13** 
+
+- To print the matching line which end with given keyword 
+
+```bash 
+
+grep "keyword$" file 
+
+```
+
+**Case 14** 
+
+- Suppose we have 100 files in a directory (dirA) and we need to search a keyword in all the files 
+
+
+```bash 
+
+grep -R "keyword" dirA/
+
+
+# Ex: grep -R "Raju" test/ 
+
+# or 
+
+# Ex: grep "Raju" test/* 
+
+# Searches for all files inside test directory for Raju word
+
+```
+
+**Case 15** 
+
+- We can use  egrep command for the multiple keyword search 
+
+```bash 
+
+egrep "key1|key2|key3" file 
+
+
+```
+
+
+**Case 16** 
+
+- If you just wanna search but dont want to print on terminal 
+
+```bash 
+
+grep -q "keyword" file
+
+# after this you can check the status (exit status ) of this command via $? if its 0
+# successful or else unsuccessful this way you can take decisions in shell scripts  
+
+```
+
+- If you want to suppress error message 
+
+```bash 
+
+grep -s "keyword" file 
+
+```
+
+
+```bash
+
+ls | grep -i file
+
+
+```
+
+**egrep** 
+
+- To search multiple files 
+
+```bash 
+
+egrep "kara|karley|kindley" users.csv 
+
+```
+
+**pgrep** 
+
+- To search based on process name and gets its process id 
+
+```bash 
+
+# Before 
+
+ps -ef | grep nginx 
+
+
+# after
+
+pgrep nginx 
+
+```
+
+**fgrep** 
+
+- To search for a word excluding regex characters like . * in words 
+
+```bash 
+
+fgrep hello.world file1.txt 
+
+# in grep you have to use -w 
+
+grep -w hello.world file2.txt 
+
+```
+
+**zgrep** 
+
+- zgrep is used to search in gz archive files grep wont work on such files 
+
+```bash 
+
+zgrep sara users.csv.gz 
+
+```
+
+
+**pdfgrep** 
+
+- You can grep and search words in pdf files so we have to use `pdfgrep` to search for words in pdf files 
+
+```bash 
+
+pdfgrep "dummy" dummy.pdf 
+
+```
+
+--- 
+
+## Linux wildcards 
+
+- wildcards are special characters that represent one or more characters in filenames or commands , allowing users to select multiple files at once 
+
+
+| Symbol | Meaning | Example |
+| --- | --- | --- |
+| * | Matches any number of characters, including none | *.txt matches all files ending with .txt |
+| ? | Matches exactly one character  | file?.txt matches file1.txt , file2.txt etc  |
+| [] | Matches any of the enclosed characters  | file[12].txt matches file1.txt and file2.txt only |
+| {} | Matches a group of patterns | file{1,2}.txt matches file1.txt and file2.txt |
+| ^ | Matches the start of a line  | ^Hello matches any line starting with hello |
+| $ | Matches the end of line  | world$ matches any line ending with world  |
+
+```bash 
+
+ls *.xml # matches all files having .xml extension 
+
+ls *.yml 
+
+ls *.jpg
+
+```
+
+
+**Case 01** 
+
+- How to find all the xml files in a directory
+
+```bash 
+
+
+ls *.xml 
+
+
+```
+
+
+**Case 02** 
+
+- Create 20 files like file1 , file2 ... file20 
+
+
+```bash 
+
+touch file{1..20}
+
+# here 1..20 (provide number range from 1 to 20)
+
+```
+
+**Case 03** 
+
+- Find all the files whose name is exactly 4 characters ex a123 , test ... 
+
+```bash 
+
+
+ls ????
+
+```
+
+**Case 04** 
+
+- Find all the files with name _123 (where _ can be any character) 
+
+```bash 
+
+ls ?123 
+
+``` 
+
+**Case 05** 
+
+- Find files whose name start wth a , b or c 
+
+```bash 
+
+ls [abc]*
+
+```
+
+
+**Case 06** 
+
+- Find files which includes numeric value 
+
+```bash 
+
+ls *[0-9]*
+
+
+```
+
+
+**Case 07** 
+
+- Find all files that start with "test" and have exactly 6 character in their name (eg: test01 , test99)
+
+```bash 
+
+ls test??
+
+```
+
+**Case 08** 
+
+- Find all the files that have atleast one underscore in their name 
+
+
+```bash 
+
+ls *_*
+
+```
+
+
+**Case 08** 
+
+- List all files that do not contain the letter "e" in their name 
+
+```bash 
+
+ls | grep -v "e" 
+
+# grep -v means except the pattern get all match  
+
+```
+
+**Case 09** 
+
+- Find all files that start with a capital letter [A-Z]
+
+```bash 
+
+ls [A-Z]*
+
+```
+
+**Case 10** 
+
+How would you list all files that start with the letter "a" and end with .sh in the current directory 
+
+
+```bash 
+
+ls a*.sh
+
+```
+
+**Case 11** 
+
+- What command would you use to move all the files with a .jpg extension to the images directory 
+
+
+```bash 
+
+mv *.jpg images/ 
+
+# or
+
+mv *.jpg images 
+
+```
+
+**Case 12** 
+
+- How can you delete all the files that have "backup" somewhere in their filename 
+
+
+```bash 
+
+rm *backup* 
+
+```
+
+
+```bash 
+
+grep ^R users.csv # find all lines that start with R 
+
+grep .com$ users.csv # find all lines that end with .com 
+
+```
+
+**Case 13** 
+
+- How would you use grep to find lines that start with "Warning" in a log file
+
+```bash 
+
+grep ^Warning userlog.log 
+
+```
+
+**Case 14** 
+
+- What regex pattern would you use with grep to find all lines containing an email address in a text file ?
+
+```bash 
+
+grep .com$ user.txt 
+
+```
+
+**Case 15** 
+
+Write a grep command to find lines that contain a date in the format YYYY-MM_DD in a file 
+
+```bash 
+
+grep -E '\b[0-9]{4}-[0-9]{2}-[0-9]{2}\b' filedates.txt
+
+```
+
+--- 
+
+## Linux Redirection 
+
+- Use casees 
+
+    - Merging multiple files into a single file 
+
+    - Split a big file into a small file with relavent data 
+
+
+```bash 
+
+cat file1 
+
+cat fil2 
+
+cat file1 file2 
+
+
+cat file1 file2 > file3 # Combines file1 and file2 and stores its output in flle3 
+
+```
+
+**Type of redirection** 
+
+- Standard Input (Stdin)
+- Standard Output (Stdout)
+- Standard error (Stderr)
+
+**File Descriptors** 
+    
+    In Linux , a file descriptor is an integer that represents an open file. There are three standard file descriptors: 
+
+    1.Standard Input (stdin) File Descriptor 0 
+    2.Standard Ouput (stdout) File Descriptor 1 
+    3.Standard error (stderr) File Descriptor 2 
+
+    These descriptors help the system understand where to send or recieve data 
+
+
+**Stdout 1** 
+
+- Output of a command is shown in terminal 
+- To route output in file using > 
+
+    `hostname > file_name`
+
+- To append output in existing file using >> 
+
+    `pwd >> file_name`
+
+**stderr - 2** 
+
+- if any command gives you error then it is considered as stderr - 2
+
+- we can direct the error to a file 
+
+    `cd /root 2> error_file`
+
+- To redirect both standard output and error to a file 
+
+    `cd /root > error_file 2>&1` 
+
+    or 
+
+    `cd /root &> error_file`
+
+    `ls &>> error.txt`
+
+
+**Stdin - 0** 
+
+- Input is used when feeding file contents to a file 
+
+- cat < filename 
+
+- cat << EOF 
+
+- cat data.csv (is same as cat < data.csv so its bydefault stdin)
 
