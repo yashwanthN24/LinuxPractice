@@ -1188,3 +1188,85 @@ cat file1 file2 > file3 # Combines file1 and file2 and stores its output in flle
 
 --- 
 
+## ps 
+
+To see processes by username
+
+`ps -u username` 
+
+`ps -G groupname`
+
+To see the proces tree 
+
+`ps -ejH`
+
+To see all the running processes 
+
+`ps -e`
+
+`ps -A`
+
+`ps -ef` (For full format)
+
+To see all the processes in BSD (Berkeley Software Distribution) format 
+Ideally it gives you more information 
+
+`ps aux`
+
+--- 
+
+## kill 
+
+- `kill` command is used to terminate a proces manually 
+
+    Syntax
+
+    kill [Options] [Pid]
+
+    Options = Signal name or no 
+    PID = Process ID 
+
+- To see all the signal names 
+
+    `kill -l`
+
+- Most widely used commands 
+
+    ```bash 
+
+     kill PID 
+
+     kill -1 PID #  (To Restart the process)
+
+     kill -2 PID # (interrupt from keyboard like Ctrl + C)
+
+     kill -3 PID # (forcefully terminate the process)
+
+     kill -15 PID # (kill process gracefully)
+
+     kill -9 PID # To force kill the process
+
+     ```
+
+# Top command 
+
+- The top (table of processes) command shows a real-time view of running processes 
+in linux and displays kernal managed tasks 
+
+- The command  also provides a system information summery that shows resource utilization , including CPU and memory usage 
+
+- top then c = Shows the commands absolute path 
+- top then k = kill a process by PID 
+- top then n = To change the no of task displayed 
+- top then d or s = to change interval of refresh 
+- top then M = To sort the Linux running process by memory usage 
+- top then r = you can change the nice value (priotity) of a PID 
+- top then u = To filter task by user 
+- top then f = Field management 
+- top then h = help 
+- top then z or b = Toggle 'z' color/mono , 'b' bold/reverse 
+- top then x , y = x sort field , y 'running tasks' 
+- top then i = process which some memory usage 
+
+
+
